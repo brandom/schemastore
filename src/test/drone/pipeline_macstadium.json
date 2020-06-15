@@ -1,0 +1,28 @@
+{
+  "kind": "pipeline",
+  "type": "macstadium",
+  "name": "default",
+  "clone": {
+    "depth": 1
+  },
+  "platform": {
+    "os": "linux",
+    "arch": "amd64"
+  },
+  "steps": [
+    {
+      "name": "greeting",
+      "commands": [
+        "echo hello world"
+      ]
+    }
+  ],
+  "trigger": {
+    "branch": {
+      "exclude": [
+        "master",
+        "feature/*"
+      ]
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "kind": "pipeline",
+  "type": "kubernetes",
+  "name": "default",
+  "metadata": {
+    "namespace": "default",
+    "annotations": {
+      "key1": "value1",
+      "key2": "value2"
+    },
+    "labels": {
+      "key1": "value1",
+      "key2": "value2"
+    }
+  },
+  "tolerations": [
+    {
+      "key": "example-key",
+      "operator": "Exists",
+      "effect": "NoSchedule"
+    }
+  ],
+  "trigger": {
+    "branch": {
+      "exclude": [
+        "master",
+        "feature/*"
+      ]
+    }
+  },
+  "steps": [
+    {
+      "name": "test",
+      "image": "node",
+      "commands": [
+        "npm install",
+        "npm test"
+      ]
+    }
+  ]
+}
